@@ -1,0 +1,22 @@
+{
+  "name": "backend-to-do-app",
+  "version": "1.0.0",
+  "description": "this is a to do app project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Soma-Technologies-Inc/Backend-To-Do-App.git"
+  },
+  "author": "Louange",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Soma-Technologies-Inc/Backend-To-Do-App/issues"
+  },
+  "homepage": "https://github.com/Soma-Technologies-Inc/Backend-To-Do-App#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
