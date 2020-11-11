@@ -2,9 +2,10 @@
   "name": "backend-to-do-app",
   "version": "1.0.0",
   "description": "this is a to do app project",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "startdev": "nodemon --exec babel-node src/app.js",
+    "test": "npm test"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,17 @@
   },
   "homepage": "https://github.com/Soma-Technologies-Inc/Backend-To-Do-App#readme",
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.12.1",
+    "nodemon": "^2.0.6"
   }
 }
