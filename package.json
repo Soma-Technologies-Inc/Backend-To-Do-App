@@ -4,7 +4,7 @@
   "description": "this is a to do app project",
   "main": "src/app.js",
   "scripts": {
-    "startdev": "nodemon --exec babel-node src/app.js",
+    "startDev": "nodemon --exec babel-node src/app.js",
     "test": "npm test"
   },
   "repository": {
