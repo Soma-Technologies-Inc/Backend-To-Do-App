@@ -2,7 +2,7 @@
   "name": "backend-to-do-app",
   "version": "1.0.0",
   "description": "this is a to do app project",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Soma-Technologies-Inc/Backend-To-Do-App#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1"
   }
 }
