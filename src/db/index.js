@@ -1,3 +1,3 @@
-const TaskModel=[];
+const Tasks=[];
 
-export default TaskModel;
+export default Tasks;
