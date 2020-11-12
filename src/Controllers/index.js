@@ -52,6 +52,21 @@ class taskController{
                 })
             }
         }
+        static async getAllTasks(req,res) {
+            try {
+                res.status(200).send({
+                    status: 200,
+                    message: "the database contains these data below",
+                    data: [Tasks]
+                })
+            }
+            catch (error) {
+                res.send({
+                    message:'Fatal error found',
+                    error: error
+                })
+            }
+        }
 }
 
 
