@@ -1,7 +1,14 @@
 import Tasks from "../db/index"
 
 class taskController{
-    
+    static async rootPath(req,res) {
+        try {
+            res.status(200).send('This is the start of our server and leaving this page empty was intentional this indicates that our app is running so it is time to test the endpoints')
+        }
+        catch (error) {
+            res.send(error);
+        }
+    }
     static async findTask(req,res) {
         try {
             const findById = Tasks.find(task => task.TaskId === parseInt(req.params.TaskId));
