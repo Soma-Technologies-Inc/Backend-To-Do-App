@@ -1,6 +1,7 @@
 import Tasks from "../db/index"
 
 class taskController{
+    
     static async findTask(req,res) {
         try {
             const findById = Tasks.find(task => task.TaskId === parseInt(req.params.TaskId));
@@ -20,6 +21,7 @@ class taskController{
                 })
             }
         }
+        
         static async createTask(req,res) {
 
             const { TaskName,TaskPriority }= req.body;
@@ -101,8 +103,27 @@ class taskController{
                 res.send(error)
             }
         }
+        static async UpdateTask(req,res){
+
+            try{
+                const findTask= Tasks.find(task => task.TaskId === parseInt(req.params.TaskId))
+    
+                if(!findTask) return res.status(404).send("task not found");
+    
+                findTask.TaskName=req.body.TaskName;
+                findTask.TaskPriority= req.body.TaskPriority;
+                res.status(200).send(findTask);
+                } catch(error) {
+                    res.send({
+                        status_code: 404,
+                        error: error
+                    })
+                }
         }
+        
+            }
 
 export default taskController;
+
 
 
