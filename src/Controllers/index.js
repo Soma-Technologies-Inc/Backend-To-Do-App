@@ -21,5 +21,4 @@ class createTaskController{
         }
     
 }
-
 export default createTaskController;
