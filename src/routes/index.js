@@ -9,6 +9,10 @@ router.delete('/task', taskController.deleteAllTasks);
 router.post('/task',taskController.createTask);
 router.get('/task/:TaskId',taskController.findTask);
 router.get('/task/priority/:TaskPriority', taskController.getByPriority);
+router.put('/task/:TaskId',taskController.UpdateTask)
+
+
 
 export default router;
+
 
