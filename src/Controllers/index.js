@@ -11,7 +11,8 @@ class taskController{
                 status: 200,
                 found_task: [findById]
             });
-            } catch (error) {
+            }
+            catch (error) {
                 res.send({
                     message:'Fatal error found',
                     error: error
@@ -36,13 +37,20 @@ class taskController{
                 })
             }
         }
-    static async deleteTask(req,res){
-        const taskToDelete = Tasks.find(task => task.TaskId === parseInt(req.params.TaskId))
-        if(!taskToDelete)
-        return res.status(404).json('There is no task to deleted.');
-        const index = Tasks.indexOf(taskToDelete);
-        Tasks.splice(index,1);
-        res.status(200).json(`task successfully deleted`);
+        static async deleteTask(req,res){
+            try {
+                const taskToDelete = Tasks.find(task => task.TaskId === parseInt(req.params.TaskId))
+                if(!taskToDelete) return res.status(404).json('There is no task to deleted.');
+                const index = Tasks.indexOf(taskToDelete);
+                Tasks.splice(index,1);
+                res.status(200).json(`task successfully deleted`);
+            }
+            catch (error) {
+                res.send({
+                    message:'Fatal error found',
+                    error: error
+                })
+            }
         }
 }
 
