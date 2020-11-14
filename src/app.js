@@ -14,3 +14,9 @@ const port = process.env.PORT || 3000;
 
 app.listen(port,()=>console.log(`server is running at ${port}`));
 
+<<<<<<< HEAD
+=======
+app.listen(3000, () => {
+    console.log(`server is running well`)
+});
+>>>>>>> delete a specific task
