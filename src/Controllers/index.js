@@ -2,13 +2,13 @@ import Tasks from "../db/index";
 class taskController{
     static async findTask(req,res) {
         try {
-            const findById = Tasks.find(task => task.TaskId === parseInt(req.query.TaskId));
+            const findById = Tasks.find(task => task.TaskId === parseInt(req.params.TaskId));
             if(!findById)res.status(404).json({
-                status_code: 404,
+                static: 404,
                 message: 'Task was nowhere to be found'
             })
             res.status(200).json({
-                status: 200,
+                message: success,
                 found_task: [findById]
             });
             }
@@ -26,7 +26,7 @@ class taskController{
                 const TaskNew = {TaskId:Tasks.length+1,TaskName,TaskPriority}
                 Tasks.push(TaskNew)
                 res.status(201).send({
-                    status: 201,
+                    message: success,
                     data: [Tasks]
                 });
                 }
@@ -67,8 +67,31 @@ class taskController{
                 })
             }
         }
-}
-
+        static async getByPriority(req,res) {
+            try {
+                const priority = [];
+                Tasks.map(p=>{
+                    if(p.TaskPriority === req.params.TaskPriority){
+                        priority.push(p);
+                    }
+                });
+                if (priority.length===0) {
+                    res.status(404).send({message:'the task with given priority is not found'})
+                } else{
+                    res.status(200).send({
+                        message:'success',
+                        data:priority
+                    });
+                }
+            }
+            catch (error) {
+                res.send({
+                    message:'Fatal error found',
+                    error: error
+                })
+            }
+            }
+        }
 
 export default taskController;
 
