@@ -1,4 +1,5 @@
-import Tasks from "../db/index";
+import Tasks from "../db/index"
+
 class taskController{
     static async findTask(req,res) {
         try {
@@ -8,7 +9,7 @@ class taskController{
                 message: 'Task was nowhere to be found'
             })
             res.status(200).json({
-                message: success,
+                message: 'success',
                 found_task: [findById]
             });
             }
@@ -26,7 +27,7 @@ class taskController{
                 const TaskNew = {TaskId:Tasks.length+1,TaskName,TaskPriority}
                 Tasks.push(TaskNew)
                 res.status(201).send({
-                    message: success,
+                    message: 'success',
                     data: [Tasks]
                 });
                 }
@@ -91,6 +92,15 @@ class taskController{
                 })
             }
             }
+        static async deleteAllTasks(req,res) {
+            try {
+                Tasks.splice(0, Tasks.length);
+                res.status(200).json('All todo tasks were successfully deleted and know that you wont find any');
+            }
+            catch (error) {
+                res.send(error)
+            }
+        }
         }
 
 export default taskController;
